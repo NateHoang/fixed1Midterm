@@ -1,0 +1,1055 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Fixed 1 Midterm</title>
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
+
+    <style>
+      body {
+        font-family:
+          -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu",
+          "Droid Sans", sans-serif, "Meiryo";
+        padding: 0 12px;
+      }
+
+      table {
+        border-collapse: collapse;
+        margin-bottom: 24px;
+        width: 100%;
+      }
+      table > thead > tr > th,
+      table > tbody > tr > td {
+        padding: 5px 10px;
+      }
+      table > thead > tr > th {
+        text-align: left;
+        border-bottom: 1px solid;
+      }
+      table > tbody > tr + tr > td {
+        border-top: 1px solid;
+      }
+
+      .tooltip {
+        position: relative;
+        cursor: pointer;
+        display: inline-block;
+      }
+      .tooltip img {
+        display: none;
+        position: absolute;
+        width: var(--tooltip-img-width, 300px);
+        height: auto;
+        border: 2px solid #f00;
+        background: #ffffcc;
+        padding: 5px;
+        z-index: 10;
+        bottom: 100%;
+        left: 50%;
+        transform: translateX(10px);
+        max-width: 90vw; /* ✅ prevents image from exceeding viewport width */
+        max-height: 80vh; /* ✅ keeps image inside visible page vertically */
+        object-fit: contain;
+        box-sizing: border-box;
+      }
+
+      .tooltip[data-position="below"] img {
+        bottom: auto;
+        top: 100%;
+      }
+
+      .tooltip:hover img {
+        display: block;
+        /* Reposition if too close to top or bottom of viewport */
+        top: auto;
+        bottom: auto;
+      }
+
+      .blurred {
+        filter: blur(3px);
+        transition: filter 0.3s ease;
+      }
+
+      table td:not(:first-child),
+      table td li {
+        cursor: pointer;
+      }
+
+      summary {
+        font-size: 22px;
+        font-weight: bold;
+        cursor: pointer;
+        margin: 16px 0;
+      }
+
+      details {
+        border: 2px solid #444;
+        border-radius: 8px;
+        padding: 10px;
+        background: #f9f9f9;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Protected Content</h2>
+    <p>Please enter the password to view the content:</p>
+    <input type="password" id="password" placeholder="Enter password" />
+    <button onclick="checkPassword()">Submit</button>
+    <div id="content" style="display: none; margin-top: 20px">
+      <!-- <div> -->
+      <div class="blur-buttons">
+        <button id="blurAll">Blur All (Press spacebar to blur)</button>
+        <button id="unblurAll">Unblur All (Press spacebar to unblue)</button>
+        <button
+          id="shuffleAllTables"
+          title="Shuffle each table's rows within its own details block"
+        >
+          Shuffle Tables (Press z to shuffle)
+        </button>
+        <button
+          id="resetTables"
+          title="Reset all tables to their original order"
+        >
+          Reset Tables (Press X to unshuffle)
+        </button>
+      </div>
+      <br />
+      <details>
+        <summary>Lecture 1: Posterior Crowns</summary>
+        <table>
+          <thead>
+            <tr>
+              <th>Aspect</th>
+              <th>Details</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Definition of Treatment Planning</td>
+              <td>
+                A logical sequence of treatment designed to restore the
+                patient's dentition to <strong>good health</strong>,
+                <strong>optimal function</strong>, and
+                <strong>appearance</strong>. Must account for patient
+                preferences and needs.
+              </td>
+            </tr>
+            <tr>
+              <td>Conditions for Crown Treatment</td>
+              <td>
+                <p>A crown must achieve one or more of:</p>
+                <ol>
+                  <li><strong>Correct Existing Disease</strong></li>
+                  <li><strong>Prevent Future Disease</strong></li>
+                  <li><strong>Restore Function</strong></li>
+                  <li><strong>Improve Appearance</strong></li>
+                </ol>
+              </td>
+            </tr>
+            <tr>
+              <td>Partial vs. Full Coverage</td>
+              <td>
+                Partial coverage (onlay) relies on residual tooth strength. Full
+                coverage reinforces weakened teeth and re-establishes ideal
+                occlusion. Traditional rule: if filling extends &gt;
+                <strong>1/3 of occlusal table</strong>, crown recommended
+                (modern porcelain may alter this).
+              </td>
+            </tr>
+            <tr>
+              <td>Clinical Examples</td>
+              <td>
+                <ul>
+                  <li>
+                    Large DOL amalgam with
+                    <strong>distobuccal cusp broken off</strong> → minimal
+                    residual structure →
+                    <strong>build-up + full coverage crown</strong>.
+                  </li>
+                  <li>
+                    Amalgam occupying most of occlusal table → all cusps need
+                    coverage (onlay, crownlay, or full coverage). Insurance
+                    often covers full coverage.
+                  </li>
+                </ul>
+              </td>
+            </tr>
+            <tr>
+              <td>Wedging Effect</td>
+              <td>
+                In severely weakened teeth,
+                <strong>intracoronal restorations</strong> generate greater
+                wedging forces → tooth fracture. Full coverage avoids this.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Aspect</th>
+              <th>Details</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Periodontal Foundation</td>
+              <td>
+                The periodontium is the foundation; if compromised, the crown
+                will fail regardless of quality. Key factors:
+                <strong>attachment loss</strong> and
+                <strong>furcation exposure</strong>.
+              </td>
+            </tr>
+            <tr>
+              <td>Prognosis</td>
+              <td>
+                Tooth with <strong>50% attachment loss</strong> and
+                <strong>Class 3 furcation</strong> → poor overall prognosis.
+                Crown placement questionable.
+              </td>
+            </tr>
+            <tr>
+              <td>Crown-to-Root Ratio</td>
+              <td>
+                Physical relationship between portion of tooth
+                <strong>within alveolar bone</strong> vs.
+                <strong>not within bone</strong>. Determined via radiograph.
+                Desired ratio <strong>&lt; 1</strong> (more tooth in bone).
+                Ideal ratio <strong>2:3</strong> (Tooth A). Ratio
+                <strong>&gt; 1</strong> (Tooth B) → poor long-term prognosis.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Aspect</th>
+              <th>Details</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Crown Margin</td>
+              <td>
+                The <strong>outer edge</strong> of the crown. Interacts with the
+                <strong>finish line</strong> (boundary surface of tooth
+                preparation), also called <strong>finish curve</strong>.
+              </td>
+            </tr>
+            <tr>
+              <td>Margin Placement Options</td>
+              <td>
+                <ol>
+                  <li><strong>Supra-gingival</strong> – above gum line.</li>
+                  <li><strong>Crestal</strong> – at gum crest.</li>
+                  <li><strong>Sub-gingival</strong> – below gum line.</li>
+                </ol>
+              </td>
+            </tr>
+            <tr>
+              <td>Factors Influencing Placement</td>
+              <td>
+                <ul>
+                  <li>Decay location</li>
+                  <li>Margin of old restoration/crown</li>
+                  <li><strong>Material used</strong></li>
+                  <li>Emergence profile</li>
+                  <li>Patient esthetics</li>
+                </ul>
+              </td>
+            </tr>
+            <tr>
+              <td>Margin Shape</td>
+              <td>
+                Should follow the shape of the <strong>CEJ</strong> – higher
+                interproximally than on buccal/lingual. Must be
+                <strong>smooth</strong> (minimal irregularities) for crown
+                adaptation, impression, lab steps, scanning, milling.
+              </td>
+            </tr>
+            <tr>
+              <td>“J” Shaped Margin (Ski Jump)</td>
+              <td>
+                Caused by sinking a <strong>rounded diamond</strong> beyond the
+                width of the cutting tip → creates
+                <strong>unsupported enamel</strong>. Remove with
+                <strong>end cutting diamond</strong>. Prevention: use
+                <strong>multi-radius diamond</strong> (our main bur in bur
+                block).
+              </td>
+            </tr>
+            <tr>
+              <td>Final Margin Shape</td>
+              <td>
+                <strong>Butt joint</strong> with
+                <strong>90° exit angle</strong>. Lingual margin = flat butt
+                joint → reduces stress. Buccal margin sloped → stress
+                concentration → fracture/failure (acceptable for PFM with metal
+                support).
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Step</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1. <strong>Buccal &amp; Lingual Axial Reduction</strong></td>
+              <td>Reduce vertical walls on buccal and lingual surfaces.</td>
+            </tr>
+            <tr>
+              <td>2. <strong>Interproximal Reduction</strong></td>
+              <td>
+                Connect buccal and lingual reductions mesially and distally.
+              </td>
+            </tr>
+            <tr>
+              <td>3. <strong>Occlusal Reduction</strong></td>
+              <td>Reduce occlusal surface following tooth planes.</td>
+            </tr>
+            <tr>
+              <td>4. <strong>Functional Cusp Reduction/Bevel</strong></td>
+              <td>
+                Create a third plane on the functional cusp for clearance.
+              </td>
+            </tr>
+            <tr>
+              <td>5. <strong>Smoothing &amp; Refining</strong></td>
+              <td>Smooth all surfaces and margins.</td>
+            </tr>
+            <tr>
+              <td>6. <strong>Final Evaluation/Assessment</strong></td>
+              <td>
+                Check for undercuts, margin quality, axial depth, occlusal
+                clearance.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Aspect</th>
+              <th>Details</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Taper</td>
+              <td>
+                Convergence of two opposing external walls (e.g., M-D or B-L) as
+                viewed in a given plane. Ideal taper =
+                <strong>6°</strong> (acceptable <strong>10°–12°</strong>).
+                Achieved by holding diamond bur in constant angle.
+              </td>
+            </tr>
+            <tr>
+              <td>Line of Draw (Path of Insertion)</td>
+              <td>
+                The path a crown follows to seat onto the tooth. Should be
+                <strong>consistent</strong> and generally aligned with the
+                <strong>long axis</strong> of the tooth.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Aspect</th>
+              <th>Details</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Definition</td>
+              <td>
+                Reduction of vertical walls (buccal, lingual, mesial, distal).
+              </td>
+            </tr>
+            <tr>
+              <td>Material-Specific Depth at Margin</td>
+              <td>
+                <ul>
+                  <li><strong>Porcelain</strong>: 1.0–1.5 mm</li>
+                  <li><strong>PFM</strong>: 1.0–1.25 mm</li>
+                  <li><strong>Gold</strong>: 0.5 mm</li>
+                </ul>
+              </td>
+            </tr>
+            <tr>
+              <td>Technique</td>
+              <td>
+                <ol>
+                  <li>
+                    Make <strong>depth cuts/grooves</strong> on B and L surfaces
+                    using chamfer diamond, round bur, or carbide. Apical portion
+                    slightly <strong>above</strong> final margin location.
+                  </li>
+                  <li>
+                    Hold bur in <strong>long axis</strong> of tooth to generate
+                    taper.
+                  </li>
+                  <li>
+                    <strong>Connect</strong> depth grooves for continuous
+                    reduction.
+                  </li>
+                </ol>
+              </td>
+            </tr>
+            <tr>
+              <td>Appearance</td>
+              <td>Initially rough and jagged; smoothed later.</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Aspect</th>
+              <th>Details</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Purpose</td>
+              <td>Connect buccal and lingual axial reductions.</td>
+            </tr>
+            <tr>
+              <td>Two Techniques</td>
+              <td>
+                <ol>
+                  <li>
+                    <strong>Brushing motion</strong> from buccal to lingual.
+                  </li>
+                  <li>
+                    <strong>Prepare down from occlusal</strong> like an
+                    interproximal filling.
+                  </li>
+                </ol>
+              </td>
+            </tr>
+            <tr>
+              <td>Important Anatomy</td>
+              <td>
+                Tooth is <strong>1.5–2.0 mm wider</strong> at the contact point
+                than at the <strong>CEJ</strong>. This prevents damaging the
+                adjacent tooth during preparation.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Aspect</th>
+              <th>Details</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Principle</td>
+              <td>
+                Follow the <strong>planes of the tooth</strong> (morphological
+                reduction) to preserve tooth structure and provide proper
+                clearance.
+              </td>
+            </tr>
+            <tr>
+              <td>Occlusal Clearance</td>
+              <td>
+                Amount of reduction needed for adequate thickness of restorative
+                material. Requires <strong>functional cusp bevel</strong> for
+                proper clearance.
+              </td>
+            </tr>
+            <tr>
+              <td>Morphological Reduction</td>
+              <td>
+                Reduce occlusion while following differing planes of occlusal
+                table (triangular ridges → grooves → fossa).
+              </td>
+            </tr>
+            <tr>
+              <td>Technique</td>
+              <td>
+                <ol>
+                  <li>
+                    Make <strong>depth grooves</strong> in occlusal table using
+                    chamfer diamond or depth cutting bur.
+                  </li>
+                  <li>
+                    <strong>Connect</strong> grooves with chamfer diamond
+                    following tooth planes.
+                  </li>
+                </ol>
+              </td>
+            </tr>
+            <tr>
+              <td>High/Low Points</td>
+              <td>
+                <strong>Triangular ridges</strong> and
+                <strong>oblique ridge</strong> (maxillary molar) = high points;
+                <strong>grooves</strong> = low points. Depth grooves placed at
+                same plane angle as buccal cusp.
+              </td>
+            </tr>
+            <tr>
+              <td>Final Appearance</td>
+              <td>
+                Should <strong>mimic the anatomy</strong> of the occlusal table;
+                tooth type should be identifiable.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Aspect</th>
+              <th>Details</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Definition</td>
+              <td>
+                A <strong>third plane</strong> of occlusal reduction on the
+                functional cusp. <strong>NOT</strong> a composite bevel (0.5–1.0
+                mm). It is <strong>large</strong> and follows the angulation of
+                the tooth.
+              </td>
+            </tr>
+            <tr>
+              <td>Which Cusp?</td>
+              <td>
+                <ul>
+                  <li>
+                    <strong>Maxilla</strong>:
+                    <strong>Lingual cusp</strong> (lingual-occlusal surface).
+                  </li>
+                  <li>
+                    <strong>Mandible</strong>:
+                    <strong>Buccal cusp</strong> (buccal-occlusal surface).
+                  </li>
+                </ul>
+              </td>
+            </tr>
+            <tr>
+              <td>Purpose</td>
+              <td>
+                Provides adequate clearance for restorative material on the
+                functional cusp that contacts the opposing tooth's marginal
+                ridge or central fossa.
+              </td>
+            </tr>
+            <tr>
+              <td>Visualization</td>
+              <td>
+                From interproximal view: <strong>axial wall</strong> (blue) +
+                <strong>occlusal reduction</strong> (green) +
+                <strong>functional cusp bevel</strong> (red) = three distinct
+                planes. The bevel connects axial wall to occlusal table.
+              </td>
+            </tr>
+            <tr>
+              <td>Size</td>
+              <td>Only slightly smaller than the other two occlusal planes.</td>
+            </tr>
+            <tr>
+              <td>Technique</td>
+              <td>
+                Angulate bur to follow the tooth's surface angulation. On
+                mandibular teeth: buccal surface of buccal cusp. On maxillary:
+                lingual surface of lingual cusps.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Aspect</th>
+              <th>Details</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Smoothing &amp; Refining</td>
+              <td>Smooth all prepared surfaces and margins.</td>
+            </tr>
+            <tr>
+              <td>Evaluation for Undercuts</td>
+              <td>
+                View from occlusal; look for irregularities that prevent
+                seating/removal. Smooth with chamfer diamond.
+              </td>
+            </tr>
+            <tr>
+              <td>Margin Evaluation</td>
+              <td>
+                Check smoothness visually or with explorer. If rough, smooth
+                with <strong>end cutting diamond</strong> or chamfer diamond
+                <strong>without water</strong> with gentle touch.
+              </td>
+            </tr>
+            <tr>
+              <td>Axial Depth Check</td>
+              <td>Ensure correct depth circumferentially.</td>
+            </tr>
+            <tr>
+              <td>Finish Line Contour</td>
+              <td>
+                Follow gingival contours – interproximal margin should be
+                <strong>higher occlusally</strong> than buccal/lingual.
+              </td>
+            </tr>
+            <tr>
+              <td>Occlusal Clearance Evaluation</td>
+              <td>
+                <ol>
+                  <li><strong>Visual</strong> (least accurate).</li>
+                  <li>
+                    <strong>Prep check devices</strong> (instruments or bite
+                    tabs) – tip should move freely, tabs slide out in MIP.
+                  </li>
+                  <li>
+                    <strong>Rigid bite registration material</strong> – patient
+                    bites in MIP, set, measure thickness with calipers.
+                  </li>
+                </ol>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Aspect</th>
+              <th>Details</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Common Sites of Damage</td>
+              <td>
+                <ul>
+                  <li>Adjacent tooth</li>
+                  <li>Soft tissue (gums, tongue, cheek)</li>
+                  <li>Pulp</li>
+                </ul>
+              </td>
+            </tr>
+            <tr>
+              <td>Soft Tissue Protection</td>
+              <td>
+                Rubber dam usually <strong>not used</strong>; dentist and
+                assistant must monitor patient's tongue and cheeks.
+              </td>
+            </tr>
+            <tr>
+              <td>Adjacent Tooth Damage</td>
+              <td>
+                Most common during interproximal axial reduction. Remember:
+                teeth are <strong>1.5–2.0 mm wider</strong> at contact than at
+                CEJ. Consider this when starting axial reduction.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Material</th>
+              <th>Advantages</th>
+              <th>Disadvantages</th>
+              <th>Reduction Requirements</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>All-Ceramic (Emax, Zirconia)</strong></td>
+              <td>
+                <ul>
+                  <li>Higher esthetics</li>
+                  <li>Natural appearance</li>
+                  <li>Emax and zirconia less brittle</li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li>No metal substructure</li>
+                  <li>More brittle (improved with modern materials)</li>
+                  <li>Greater occlusal and axial reduction required</li>
+                  <li>Porcelain occlusal more abrasive to opposing teeth</li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li>
+                    <strong>Occlusal</strong>: 2 mm (Emax); all zirconia can be
+                    1 mm (prone to fracture).
+                  </li>
+                  <li>
+                    <strong>Margin depth</strong>: at least 1 mm → axial
+                    reduction ≥ 1.5 mm mid-wall.
+                  </li>
+                  <li>All areas rounded.</li>
+                  <li>Same for PFZ (e.g., LAVA).</li>
+                </ul>
+              </td>
+            </tr>
+            <tr>
+              <td><strong>PFM (Porcelain Fused to Metal)</strong></td>
+              <td>
+                <ul>
+                  <li>Greater support from metal substructure</li>
+                  <li>Metal occlusal less abrasive</li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li>Less esthetic (graying effect)</li>
+                  <li>Porcelain-metal interface can fail</li>
+                  <li>Porcelain needs metal support</li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li>
+                    <strong>With porcelain occlusion</strong>: proper B/L
+                    reduction for thickness without overcontour.
+                  </li>
+                  <li>
+                    <strong>With metal occlusion &amp; lingual margin</strong>:
+                    occlusal 1.5 mm; buccal 1–1.5 mm; lingual 0.5–0.6 mm.
+                  </li>
+                </ul>
+              </td>
+            </tr>
+            <tr>
+              <td><strong>Gold</strong></td>
+              <td>
+                <ul>
+                  <li>Minimal reduction required</li>
+                  <li>Durable</li>
+                </ul>
+              </td>
+              <td>Not esthetic.</td>
+              <td>Axial reduction: <strong>0.5 mm</strong> at margin.</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Parameter</th>
+              <th>Value</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Ideal taper</td>
+              <td>6° (acceptable 10°–12°)</td>
+            </tr>
+            <tr>
+              <td>Crown-to-root ratio ideal</td>
+              <td>2:3 (ratio &lt; 1)</td>
+            </tr>
+            <tr>
+              <td>Tooth width difference (contact vs. CEJ)</td>
+              <td>1.5–2.0 mm</td>
+            </tr>
+            <tr>
+              <td>Axial reduction at margin – Porcelain</td>
+              <td>1.0–1.5 mm</td>
+            </tr>
+            <tr>
+              <td>Axial reduction at margin – PFM</td>
+              <td>1.0–1.25 mm</td>
+            </tr>
+            <tr>
+              <td>Axial reduction at margin – Gold</td>
+              <td>0.5 mm</td>
+            </tr>
+            <tr>
+              <td>Occlusal reduction – All-ceramic</td>
+              <td>2.0 mm (Emax); 1.0 mm (zirconia)</td>
+            </tr>
+            <tr>
+              <td>Occlusal reduction – PFM metal occlusion</td>
+              <td>1.5 mm</td>
+            </tr>
+            <tr>
+              <td>Buccal reduction – PFM metal occlusion</td>
+              <td>1.0–1.5 mm</td>
+            </tr>
+            <tr>
+              <td>Lingual reduction – PFM metal occlusion</td>
+              <td>0.5–0.6 mm</td>
+            </tr>
+            <tr>
+              <td>Margin exit angle</td>
+              <td>90° (butt joint)</td>
+            </tr>
+          </tbody>
+        </table>
+      </details>
+    </div>
+    <style>
+      /* same as before */
+      .blurred {
+        filter: blur(10px);
+        transition: filter 0.3s ease;
+      }
+
+      /* Make clickable cursor for td */
+      table td:not(:first-child) {
+        cursor: pointer;
+      }
+
+      /* li inside blurred td will inherit blur from parent */
+      table td.blurred li {
+        filter: inherit;
+      }
+
+      .blur-buttons {
+        text-align: center;
+        margin-bottom: 16px;
+      }
+      .blur-buttons button {
+        margin: 0 5px;
+        padding: 5px 12px;
+        font-size: 16px;
+        cursor: pointer;
+      }
+      .blur-section li {
+        cursor: pointer;
+        margin-bottom: 6px;
+      }
+
+      /* Blur effect same as td */
+      .blur-section li.blurred {
+        filter: blur(10px);
+        transition: filter 0.3s ease;
+      }
+
+      /* Override for bold text so it always stays clear */
+      .blur-section li.blurred b {
+        filter: none !important;
+      }
+
+      .blur-section .blur-target {
+        cursor: pointer;
+        display: inline-block;
+      }
+
+      .blurred {
+        filter: blur(10px);
+        transition: filter 0.3s ease;
+      }
+    </style>
+    <script>
+      // === BLUR LOGIC (delegated for reliability after resets) ===
+      document.addEventListener("DOMContentLoaded", () => {
+        // Delegated click: blur targets
+        document.addEventListener("click", (e) => {
+          const target = e.target;
+          // Blur targets: any table td except first-child, or elements with class 'blur-target'
+          const blurTarget =
+            target.closest("td:not(:first-child)") ||
+            target.closest(".blur-target");
+          if (blurTarget) {
+            blurTarget.classList.toggle("blurred");
+          }
+        });
+
+        // Space toggles all blurables
+        document.addEventListener("keydown", (event) => {
+          if (event.code === "Space") {
+            const blurCells = document.querySelectorAll(
+              "table td:not(:first-child), .blur-section .blur-target",
+            );
+            const allBlurred = Array.from(blurCells).every((cell) =>
+              cell.classList.contains("blurred"),
+            );
+            blurCells.forEach((cell) => {
+              if (allBlurred) cell.classList.remove("blurred");
+              else cell.classList.add("blurred");
+            });
+            event.preventDefault();
+          }
+        });
+
+        // Buttons (if present)
+        const blurAllBtn = document.getElementById("blurAll");
+        const unblurAllBtn = document.getElementById("unblurAll");
+        if (blurAllBtn) {
+          blurAllBtn.addEventListener("click", () => {
+            document
+              .querySelectorAll(
+                "table td:not(:first-child), .blur-section .blur-target",
+              )
+              .forEach((el) => el.classList.add("blurred"));
+          });
+        }
+        if (unblurAllBtn) {
+          unblurAllBtn.addEventListener("click", () => {
+            document
+              .querySelectorAll(
+                "table td:not(:first-child), .blur-section .blur-target",
+              )
+              .forEach((el) => el.classList.remove("blurred"));
+          });
+        }
+      });
+
+      // === CUSTOM HEADER ELEMENT (unchanged) ===
+      class MyHeader extends HTMLElement {
+        connectedCallback() {
+          const text = this.innerHTML.trim() || "Section Title";
+
+          this.innerHTML = `
+        <div
+          style="
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            --tooltip-img-width: 400px;
+          "
+        >
+          ${text}
+        </div>
+        <br />
+      `;
+        }
+      }
+      customElements.define("my-header", MyHeader);
+
+      // === PASSWORD CHECK (unchanged) ===
+      function checkPassword() {
+        const enteredPassword = document.getElementById("password").value;
+        const correctPassword = "";
+        if (enteredPassword === correctPassword) {
+          document.getElementById("content").style.display = "block";
+          document.querySelector("h2").style.display = "none";
+          document.querySelector("p").style.display = "none";
+          document.getElementById("password").style.display = "none";
+          event.target.style.display = "none";
+        } else {
+          alert("Incorrect password. Please try again.");
+        }
+      }
+
+      // === SHUFFLE LOGIC (per-table inside details blocks) ===
+      function shuffleRowsInTable(table) {
+        const tbody = table.querySelector("tbody");
+        if (!tbody) return;
+
+        const rows = Array.from(tbody.querySelectorAll("tr"));
+        if (rows.length <= 1) return;
+
+        // Detach all rows
+        rows.forEach((row) => tbody.removeChild(row));
+
+        // Fisher-Yates shuffle
+        for (let i = rows.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [rows[i], rows[j]] = [rows[j], rows[i]];
+        }
+
+        // Re-attach in new order
+        for (const row of rows) tbody.appendChild(row);
+      }
+
+      /* Capture the original order of rows for all tables inside details blocks (on page load) */
+      function captureOriginalOrder() {
+        const data = new Map();
+        document.querySelectorAll("details table").forEach((tbl) => {
+          const tbody = tbl.querySelector("tbody");
+          if (!tbody) return;
+          const order = Array.from(tbody.querySelectorAll("tr")).map((tr) =>
+            tr.cloneNode(true),
+          );
+          data.set(tbl, order);
+        });
+        return data;
+      }
+
+      /* Restore original order for all tables inside details blocks */
+      function resetTablesToOriginal(orderMap) {
+        orderMap.forEach((originalRows, tbl) => {
+          const tbody = tbl.querySelector("tbody");
+          if (!tbody) return;
+          // Remove current rows
+          const current = Array.from(tbody.querySelectorAll("tr"));
+          current.forEach((row) => tbody.removeChild(row));
+
+          // Append copies in original order
+          originalRows.forEach((row) => tbody.appendChild(row.cloneNode(true)));
+        });
+      }
+
+      /* Shuffle every table inside every details block independently */
+      function shuffleAllTablesInDetails() {
+        const detailsBlocks = document.querySelectorAll("details");
+        detailsBlocks.forEach((det) => {
+          det.querySelectorAll("table").forEach((tbl) => {
+            shuffleRowsInTable(tbl);
+          });
+        });
+      }
+
+      /* Wire up UI and keyboard shortcuts (Z to shuffle, X to reset) */
+      document.addEventListener("DOMContentLoaded", () => {
+        // Prepare original order snapshot
+        const originalOrder = captureOriginalOrder();
+
+        // Button handlers
+        const btnShuffle = document.getElementById("shuffleAllTables");
+        if (btnShuffle) {
+          btnShuffle.addEventListener("click", () => {
+            shuffleAllTablesInDetails();
+          });
+        }
+
+        const btnReset = document.getElementById("resetTables");
+        if (btnReset) {
+          btnReset.addEventListener("click", () => {
+            resetTablesToOriginal(originalOrder);
+          });
+        }
+
+        // Keyboard shortcuts
+        document.addEventListener("keydown", (event) => {
+          const key = event.key.toLowerCase();
+          if (key === "z") {
+            shuffleAllTablesInDetails();
+            event.preventDefault();
+          } else if (key === "x") {
+            resetTablesToOriginal(originalOrder);
+            event.preventDefault();
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
